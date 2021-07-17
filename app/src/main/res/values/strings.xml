@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MVVMDemo</string>
+
+    <string name="api_key">fe2614d7c3080f0484d31e19c99a04ee</string>
 </resources>
