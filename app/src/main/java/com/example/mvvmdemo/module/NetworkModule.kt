@@ -1,8 +1,8 @@
 package com.example.mvvmdemo.module
 
-import com.example.mvvmdemo.Config
-import com.example.mvvmdemo.network.interceptor.DefaultParamsInterceptor
 import com.example.mvvmdemo.network.service.MovieService
+import com.godgod.data.Config
+import com.godgod.data.network.interceptor.DefaultParamsInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

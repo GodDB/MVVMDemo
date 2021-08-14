@@ -21,7 +21,7 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
-        maven { url = uri("https://jitpack.io") }
+        maven { url = java.net.URI.create("https://jitpack.io") }
     }
 }
 

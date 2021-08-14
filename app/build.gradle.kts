@@ -59,6 +59,10 @@ android {
 
 dependencies {
 
+    implementation(project(mapOf("path" to ":data")))
+    implementation(project(mapOf("path" to ":feature")))
+    implementation(project(mapOf("path" to ":domain")))
+
     with(Libs.Kotlin){
         implementation(kotlin)
         implementation(coroutine)
@@ -103,5 +107,5 @@ dependencies {
         implementation(glide)
         kapt(glide_compiler)
     }
-    
+
 }

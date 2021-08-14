@@ -1,7 +1,7 @@
 package com.example.mvvmdemo.module
 
-import com.example.mvvmdemo.network.MovieDataSource
-import com.example.mvvmdemo.network.MovieDataSourceImpl
+import com.godgod.data.network.MovieDataSource
+import com.godgod.data.network.MovieDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

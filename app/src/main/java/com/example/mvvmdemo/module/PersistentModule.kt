@@ -1,8 +1,8 @@
 package com.example.mvvmdemo.module
 
 import android.content.Context
-import com.example.mvvmdemo.local.db.DemoDatabase
-import com.example.mvvmdemo.local.db.MovieDao
+import com.godgod.data.local.db.DemoDatabase
+import com.godgod.data.local.db.MovieDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

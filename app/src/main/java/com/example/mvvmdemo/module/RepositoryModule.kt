@@ -1,11 +1,10 @@
 package com.example.mvvmdemo.module
 
-import com.example.mvvmdemo.repository.MovieRepository
-import com.example.mvvmdemo.repository.MovieRepositoryImpl
+import com.godgod.data.repository.MovieRepository
+import com.godgod.data.repository.MovieRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.components.SingletonComponent
 
 @Module
