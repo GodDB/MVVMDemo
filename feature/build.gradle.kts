@@ -85,9 +85,10 @@ dependencies {
     }
 
     with(Libs.Test){
-        testImplementation(jUnit)
-        androidTestImplementation(jUntExt)
+        testImplementation(junit)
+        androidTestImplementation(junitExt)
         androidTestImplementation(espresso)
+        testImplementation(mockitoKotlin)
     }
 
     with(Libs.Network) {

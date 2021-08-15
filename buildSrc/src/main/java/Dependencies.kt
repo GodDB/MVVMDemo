@@ -34,13 +34,6 @@ object Versions {
         const val room = "2.3.0"
     }
 
-
-    object Test {
-        const val jUnit = "4.+"
-        const val jUntExt = "1.1.2"
-        const val espresso = "3.3.0"
-    }
-
     object Network {
         const val retrofit = "2.9.0"
         const val okHttp = "4.9.1"
@@ -64,9 +57,11 @@ object Libs {
     }
 
     object Test {
-        const val jUnit = "junit:junit:${Versions.Test.jUnit}"
-        const val jUntExt = "androidx.test.ext:junit:${Versions.Test.jUntExt}"
-        const val espresso = "androidx.test.espresso:espresso-core:${Versions.Test.espresso}"
+        const val junit = "junit:junit:4.13.2"
+        const val junitExt = "androidx.test.ext:junit:1.1.3"
+        const val espresso = "androidx.test.espresso:espresso-core:3.4.0"
+        const val mockitoKotlin = "org.mockito.kotlin:mockito-kotlin:3.2.0"
+        const val coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.kotlin}"
     }
 
     object Android {
