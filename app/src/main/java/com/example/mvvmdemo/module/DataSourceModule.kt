@@ -1,5 +1,7 @@
 package com.example.mvvmdemo.module
 
+import com.godgod.data.local.MovieLocalSource
+import com.godgod.data.local.MovieLocalSourceImpl
 import com.godgod.data.network.MovieDataSource
 import com.godgod.data.network.MovieDataSourceImpl
 import dagger.Binds
@@ -13,4 +15,7 @@ abstract class DataSourceModule {
 
     @Binds
     abstract fun bindMovieDataSource(movieDataSourceImpl: MovieDataSourceImpl): MovieDataSource
+
+    @Binds
+    abstract fun bindMovieLocalSource(movieLocalSourceImpl: MovieLocalSourceImpl): MovieLocalSource
 }

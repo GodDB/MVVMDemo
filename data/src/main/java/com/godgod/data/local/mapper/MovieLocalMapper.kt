@@ -3,8 +3,9 @@ package com.godgod.data.local.mapper
 import com.godgod.data.base.BaseLocalMapper
 import com.godgod.data.local.model.MovieEntity
 import com.godgod.data.model.Movie
+import javax.inject.Inject
 
-class MovieLocalMapper : BaseLocalMapper<Movie, MovieEntity> {
+class MovieLocalMapper @Inject constructor() : BaseLocalMapper<Movie, MovieEntity> {
 
     override fun toEntity(model: Movie): MovieEntity =
         with(model) {

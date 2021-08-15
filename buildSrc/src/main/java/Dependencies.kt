@@ -99,4 +99,6 @@ object Libs {
         const val glide = "com.github.bumptech.glide:glide:${Versions.Glide.glide}"
         const val glide_compiler = "com.github.bumptech.glide:compiler:${Versions.Glide.glide_compiler}"
     }
+
+    const val inject = "javax.inject:javax.inject:1"
 }

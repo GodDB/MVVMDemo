@@ -62,6 +62,7 @@ dependencies {
     implementation(project(mapOf("path" to ":data")))
     implementation(project(mapOf("path" to ":feature")))
     implementation(project(mapOf("path" to ":domain")))
+    implementation(project(mapOf("path" to ":shared")))
 
     with(Libs.Kotlin){
         implementation(kotlin)

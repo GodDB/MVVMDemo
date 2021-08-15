@@ -12,7 +12,6 @@ dependencies {
 
     with(Libs.Test) {
         implementation(junit)
-        api(coroutineTest)
         api(mockitoKotlin)
     }
 }

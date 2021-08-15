@@ -55,7 +55,8 @@ android {
 }
 
 dependencies {
-    implementation(project(mapOf("path" to ":data")))
+    implementation(project(mapOf("path" to ":shared")))
+    implementation(project(mapOf("path" to ":domain")))
 
     with(Libs.Kotlin){
         implementation(kotlin)

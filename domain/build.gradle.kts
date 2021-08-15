@@ -56,6 +56,9 @@ android {
 
 dependencies {
 
+    implementation(project(mapOf("path" to ":shared")))
+    implementation(project(mapOf("path" to ":data")))
+
     with(Libs.Kotlin){
         implementation(kotlin)
         implementation(coroutine)

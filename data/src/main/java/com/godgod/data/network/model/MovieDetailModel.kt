@@ -1,5 +1,7 @@
 package com.godgod.data.network.model
 
+import com.godgod.shared.model.GenreSingle
+
 data class MovieDetailModel(
     val id: Int,
     val title: String,
@@ -7,5 +9,3 @@ data class MovieDetailModel(
     val poster_path: String,
     val genres: List<GenreSingle>
 )
-
-data class GenreSingle(val id: Int, val name: String)

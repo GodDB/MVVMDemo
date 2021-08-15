@@ -1,6 +1,5 @@
-package com.godgod.data.model
+package com.godgod.shared.model
 
-import com.godgod.data.network.model.GenreSingle
 
 data class MovieDetail(
     val id: Int,

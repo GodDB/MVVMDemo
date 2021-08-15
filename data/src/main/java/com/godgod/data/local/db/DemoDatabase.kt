@@ -28,7 +28,7 @@ abstract class DemoDatabase : RoomDatabase() {
 interface MovieDao {
 
     @Query("SELECT * FROM PopularMovie ORDER BY popularity DESC")
-    fun getPopularMovies(): Flow<List<MovieEntity>>
+    suspend fun getPopularMovies(): List<MovieEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPopularMovies(movies: List<MovieEntity>)
