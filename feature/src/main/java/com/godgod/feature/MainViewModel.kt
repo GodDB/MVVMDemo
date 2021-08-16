@@ -1,6 +1,7 @@
 package com.godgod.feature
 
 import android.util.Log
+import androidx.lifecycle.viewModelScope
 import com.example.mvvmdemo.base.BaseViewModel
 import com.godgod.domain.MovieDetailUseCase
 import com.godgod.domain.MovieListUseCase
@@ -18,12 +19,11 @@ class MainViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     init {
-        CoroutineScope(Dispatchers.Main).launch {
+        viewModelScope.launch {
             val movieList = movieListUseCase(Unit)
             Log.d("godgod", "${movieList}")
             val movieDetail = movieDetailUseCase(movieList.data?.get(0)?.id ?: 0)
             Log.d("godgod", "$movieDetail")
         }
-
     }
 }
