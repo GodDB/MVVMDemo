@@ -1,29 +1,27 @@
 package com.godgod.data.repository
 
 
-import com.example.mvvmdemo.extension.getOrDefaultBlock
 import com.godgod.data.local.MovieLocalSource
-import com.godgod.data.model.Movie
 import com.godgod.data.network.MovieDataSource
+import com.godgod.shared.extension.getOrDefaultBlock
+import com.godgod.shared.model.Movie
 import com.godgod.shared.model.MovieDetail
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 interface MovieRepository {
 
     suspend fun getPopularMovies(): List<Movie>
-    fun getMovie(id: Int): Flow<MovieDetail>
+    suspend fun getMovie(id: Int): MovieDetail
 }
 
 class MovieRepositoryImpl @Inject constructor(
     private val movieDataSource: MovieDataSource,
     private val movieLocalSource: MovieLocalSource
-
 ) : MovieRepository {
     override suspend fun getPopularMovies(): List<Movie> {
         return runCatching {
             movieLocalSource.getPopularMovies()
+                .let { if (it.isNullOrEmpty()) throw RuntimeException("isEmpty") else it }
         }.getOrDefaultBlock {
             val movies = movieDataSource.getPopularMovies()
             movieLocalSource.insertPopularMovies(movies)
@@ -31,9 +29,14 @@ class MovieRepositoryImpl @Inject constructor(
         }
     }
 
-
-    override fun getMovie(id: Int): Flow<MovieDetail> = flow {
-
+    override suspend fun getMovie(id: Int): MovieDetail {
+        return runCatching {
+            movieLocalSource.getMovieDetail(id)
+        }.getOrDefaultBlock {
+            val detail = movieDataSource.getMovie(id)
+            movieLocalSource.insertMovieDetail(detail)
+            detail
+        }
     }
 
 }

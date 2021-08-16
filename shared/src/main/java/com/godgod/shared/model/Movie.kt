@@ -1,4 +1,4 @@
-package com.godgod.data.model
+package com.godgod.shared.model
 
 data class Movie(
     val id: Int,

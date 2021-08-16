@@ -1,6 +1,6 @@
 package com.godgod.domain
 
-import com.godgod.data.model.Movie
+import com.godgod.shared.model.Movie
 import com.godgod.data.repository.MovieRepository
 import com.godgod.domain.base.BaseCoroutineUseCase
 import com.godgod.shared.di.IoDispatcher

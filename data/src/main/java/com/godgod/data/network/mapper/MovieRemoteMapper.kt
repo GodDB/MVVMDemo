@@ -3,7 +3,7 @@ package com.godgod.data.network.mapper
 import com.godgod.data.network.model.MovieDetailModel
 import com.godgod.data.network.model.MovieModel
 import com.godgod.data.base.BaseRemoteMapper
-import com.godgod.data.model.Movie
+import com.godgod.shared.model.Movie
 import com.godgod.shared.model.MovieDetail
 import javax.inject.Inject
 

@@ -2,12 +2,11 @@ package com.godgod.data.local.db
 
 import android.content.Context
 import androidx.room.*
-
 import com.godgod.data.local.GenreConverters
+import com.godgod.data.local.model.MovieDetailEntity
 import com.godgod.data.local.model.MovieEntity
-import kotlinx.coroutines.flow.Flow
 
-@Database(entities = [MovieEntity::class], version = 1)
+@Database(entities = [MovieEntity::class, MovieDetailEntity::class], version = 1)
 @TypeConverters(GenreConverters::class)
 abstract class DemoDatabase : RoomDatabase() {
 
@@ -38,4 +37,10 @@ interface MovieDao {
 
     @Delete
     suspend fun deletePopularMovies(movies: List<MovieEntity>)
+
+    @Query("SELECT * FROM MovieDetail WHERE id == :id")
+    suspend fun getMovieDetail(id: Int): MovieDetailEntity
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertMovieDetail(detail: MovieDetailEntity)
 }
