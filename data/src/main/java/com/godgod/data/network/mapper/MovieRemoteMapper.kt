@@ -15,7 +15,7 @@ class MovieRemoteMapper @Inject constructor(): BaseRemoteMapper<MovieModel, Movi
                 title = title,
                 overview = overview,
                 popularity = popularity,
-                poster_path = poster_path,
+                poster_path = "https://image.tmdb.org/t/p/original$poster_path",
                 genre_ids = genre_ids
             )
         }
@@ -25,7 +25,7 @@ class MovieDetailRemoteMapper @Inject constructor() : BaseRemoteMapper<MovieDeta
     override fun fromRemote(model: MovieDetailModel): MovieDetail =
         with(model) {
             MovieDetail(
-                id, title, overview, poster_path, genres
+                id, title, overview, "https://image.tmdb.org/t/p/original$poster_path", genres
             )
         }
 }

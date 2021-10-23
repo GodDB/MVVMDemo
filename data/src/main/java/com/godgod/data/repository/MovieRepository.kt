@@ -23,9 +23,9 @@ class MovieRepositoryImpl @Inject constructor(
             movieLocalSource.getPopularMovies()
                 .let { if (it.isNullOrEmpty()) throw RuntimeException("isEmpty") else it }
         }.getOrDefaultBlock {
-            val movies = movieDataSource.getPopularMovies()
-            movieLocalSource.insertPopularMovies(movies)
-            movies
+            movieDataSource.getPopularMovies().also {
+                movieLocalSource.insertPopularMovies(it)
+            }
         }
     }
 
@@ -33,9 +33,9 @@ class MovieRepositoryImpl @Inject constructor(
         return runCatching {
             movieLocalSource.getMovieDetail(id)
         }.getOrDefaultBlock {
-            val detail = movieDataSource.getMovie(id)
-            movieLocalSource.insertMovieDetail(detail)
-            detail
+            movieDataSource.getMovie(id).also {
+                movieLocalSource.insertMovieDetail(it)
+            }
         }
     }
 

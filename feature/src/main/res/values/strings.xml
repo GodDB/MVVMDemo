@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MVVMDemo</string>
 
+    <string name="network_error_msg">Network Error! \n check your device connected network</string>
 </resources>

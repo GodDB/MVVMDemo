@@ -5,7 +5,11 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="feature/src/main/res/drawable/ic_launcher_background.xml" value="0.18802083333333333" />
-        <entry key="feature/src/main/res/layout/activity_main.xml" value="0.171875" />
+        <entry key="feature/src/main/res/layout/activity_main.xml" value="0.1925925925925926" />
+        <entry key="feature/src/main/res/layout/partial_loading.xml" value="0.12239583333333333" />
+        <entry key="feature/src/main/res/layout/partial_movie_detail.xml" value="0.17333333333333334" />
+        <entry key="feature/src/main/res/layout/partial_movie_list.xml" value="0.12239583333333333" />
+        <entry key="feature/src/main/res/layout/viewholder_movie_item.xml" value="0.20233463035019456" />
       </map>
     </option>
   </component>

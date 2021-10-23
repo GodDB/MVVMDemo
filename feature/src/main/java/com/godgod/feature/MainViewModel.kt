@@ -1,14 +1,16 @@
 package com.godgod.feature
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
-import com.example.mvvmdemo.base.BaseViewModel
 import com.godgod.domain.MovieDetailUseCase
 import com.godgod.domain.MovieListUseCase
-import com.godgod.shared.model.data
+import com.godgod.feature.base.BaseViewModel
+import com.godgod.feature.base.ViewEvent
+import com.godgod.feature.base.ViewState
+import com.godgod.shared.model.DataResult
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -18,12 +20,67 @@ class MainViewModel @Inject constructor(
     private val movieDetailUseCase: MovieDetailUseCase
 ) : BaseViewModel() {
 
+    override val initialState: () -> ViewState
+        get() = { MainViewState() }
+
     init {
+        setEvent(MainViewEvent.LoadMovieList)
+    }
+
+    override fun <T> viewStateReduce(prevState: ViewState, partialState: T): ViewState {
+        return when (partialState) {
+            is MovieListState -> {
+                (prevState as MainViewState).copy(movieListState = partialState)
+            }
+            is MovieDetailState -> {
+                (prevState as MainViewState).copy(movieDetailState = partialState)
+            }
+            else -> throw Exception("not handle state $partialState")
+        }
+    }
+
+    override fun handleEvent(viewEvent: ViewEvent) {
         viewModelScope.launch {
-            val movieList = movieListUseCase(Unit)
-            Log.d("godgod", "${movieList}")
-            val movieDetail = movieDetailUseCase(movieList.data?.get(0)?.id ?: 0)
-            Log.d("godgod", "$movieDetail")
+            when (viewEvent) {
+                is MainViewEvent.LoadMovieList -> handleMovieList()
+                is MainViewEvent.ClickMovieItem -> handleMovieDetail(viewEvent.id)
+            }
+        }
+    }
+
+    private fun handleMovieList() {
+        viewModelScope.launch {
+            flow { emit(movieListUseCase(Unit)) }
+                .onStart { setState(MovieListState.Loading) }
+                .collect {
+                    when (it) {
+                        is DataResult.Success -> {
+                            setState(MovieListState.Success(it.data))
+                        }
+                        is DataResult.Error -> {
+                            setState(MovieListState.Idle)
+                            setSideEffect(MainViewSideEffect.ErrorMessage(R.string.network_error_msg))
+                        }
+                    }
+                }
+        }
+    }
+
+    private fun handleMovieDetail(id: Int) {
+        viewModelScope.launch {
+            flow { emit(movieDetailUseCase(id)) }
+                .onStart { setState(MovieDetailState.Loading) }
+                .collect {
+                    when (it) {
+                        is DataResult.Success -> {
+                            setState(MovieDetailState.Success(it.data))
+                        }
+                        is DataResult.Error -> {
+                            setState(MovieDetailState.Idle)
+                            setSideEffect(MainViewSideEffect.ErrorMessage(R.string.network_error_msg))
+                        }
+                    }
+                }
         }
     }
 }

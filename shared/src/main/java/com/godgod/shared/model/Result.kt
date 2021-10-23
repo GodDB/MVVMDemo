@@ -2,55 +2,29 @@ package com.godgod.shared.model
 
 
 /**
- * A generic class that holds a value with its loading status.
+ * A generic class that holds a value
  * @param <T>
  */
-sealed class Result<out R> {
+sealed class DataResult<out R> {
 
-    data class Success<out T>(val data: T) : Result<T>()
-    data class Error(val exception: Throwable) : Result<Nothing>()
-    object Loading : Result<Nothing>()
+    data class Success<out T>(val data: T) : DataResult<T>()
+    data class Error(val exception: Throwable) : DataResult<Nothing>()
 
     override fun toString(): String {
         return when (this) {
             is Success<*> -> "Success[data=$data]"
             is Error -> "Error[exception=$exception]"
-            Loading -> "Loading"
         }
     }
 }
 
-/**
- * `true` if [Result] is of type [Success] & holds non-null [Success.data].
- */
-val Result<*>.succeeded
-    get() = this is Result.Success && data != null
+val DataResult<*>.succeeded
+    get() = this is DataResult.Success && data != null
 
-fun <T> Result<T>.successOr(fallback: T): T {
-    return (this as? Result.Success<T>)?.data ?: fallback
+fun <T> DataResult<T>.successOr(fallback: T): T {
+    return (this as? DataResult.Success<T>)?.data ?: fallback
 }
 
-val <T> Result<T>.data: T?
-    get() = (this as? Result.Success)?.data
+val <T> DataResult<T>.data: T?
+    get() = (this as? DataResult.Success)?.data
 
-inline fun <R, T> Result<T>.map(transform: (T) -> R): Result<R> {
-    return when (this) {
-        is Result.Success -> Result.Success(transform(data))
-        is Result.Error -> Result.Error(exception)
-        Result.Loading -> Result.Loading
-    }
-}
-
-inline fun <R, T> Result<T>.mapCatching(transform: (T) -> R): Result<R> {
-    return when (this) {
-        is Result.Success -> {
-            try {
-                Result.Success(transform(data))
-            } catch (e: Throwable) {
-                Result.Error(e)
-            }
-        }
-        is Result.Error -> Result.Error(exception)
-        Result.Loading -> Result.Loading
-    }
-}

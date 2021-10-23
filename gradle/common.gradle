@@ -1,0 +1,49 @@
+
+def hasLibraryPlugin = pluginManager.hasPlugin("com.android.library")
+def hasApplicationPlugin = pluginManager.hasPlugin("com.android.application")
+
+if(hasApplicationPlugin || hasLibraryPlugin) {
+
+    android {
+        compileSdkVersion(App.compileSdk)
+        buildToolsVersion(App.buildToolsVersion)
+
+        defaultConfig {
+            applicationId(App.appId)
+            minSdkVersion(App.minSdk)
+            targetSdkVersion(App.targetSdk)
+
+            versionCode(App.versionCode)
+            versionName(App.versionName)
+
+            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        }
+
+        buildTypes {
+            getByName("debug") {
+                isShrinkResources = false
+                isMinifyEnabled = false
+                proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            }
+
+            getByName("release") {
+                isShrinkResources = true
+                isMinifyEnabled = true
+                proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            }
+
+        }
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_1_8
+            targetCompatibility = JavaVersion.VERSION_1_8
+        }
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+
+        buildFeatures {
+            dataBinding = true
+        }
+    }
+
+}
