@@ -1,9 +1,9 @@
 package com.godgod.domain
 
-import com.godgod.data.repository.MovieRepository
 import com.godgod.domain.base.BaseCoroutineUseCase
+import com.godgod.domain.repository.MovieRepository
 import com.godgod.shared.di.IoDispatcher
-import com.godgod.shared.model.MovieDetail
+import com.godgod.domain.model.MovieDetail
 import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
 

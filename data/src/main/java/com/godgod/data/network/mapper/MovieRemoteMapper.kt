@@ -3,8 +3,8 @@ package com.godgod.data.network.mapper
 import com.godgod.data.network.model.MovieDetailModel
 import com.godgod.data.network.model.MovieModel
 import com.godgod.data.base.BaseRemoteMapper
-import com.godgod.shared.model.Movie
-import com.godgod.shared.model.MovieDetail
+import com.godgod.domain.model.Movie
+import com.godgod.domain.model.MovieDetail
 import javax.inject.Inject
 
 class MovieRemoteMapper @Inject constructor(): BaseRemoteMapper<MovieModel, Movie> {

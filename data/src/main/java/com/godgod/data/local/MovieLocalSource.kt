@@ -1,12 +1,8 @@
 package com.godgod.data.local
 
 import com.godgod.data.local.db.MovieDao
-import com.godgod.data.local.mapper.MovieDetailMapper
-import com.godgod.data.local.mapper.MovieLocalMapper
 import com.godgod.data.local.model.MovieDetailEntity
 import com.godgod.data.local.model.MovieEntity
-import com.godgod.shared.model.Movie
-import com.godgod.shared.model.MovieDetail
 import javax.inject.Inject
 
 interface MovieLocalSource {

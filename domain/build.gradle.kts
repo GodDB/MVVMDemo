@@ -57,7 +57,6 @@ android {
 dependencies {
 
     implementation(project(mapOf("path" to ":shared")))
-    implementation(project(mapOf("path" to ":data")))
 
     with(Libs.Kotlin){
         implementation(kotlin)
@@ -72,6 +71,7 @@ dependencies {
     with(Libs.Android.JetPack) {
         implementation(hilt_android)
         kapt(hilt_compiler)
+        androidTestImplementation(hilt_unit_test)
     }
 
     with(Libs.Test){

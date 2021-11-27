@@ -55,6 +55,7 @@ android {
 }
 
 dependencies {
+    implementation(project(mapOf("path" to ":domain")))
     implementation(project(mapOf("path" to ":shared")))
 
     with(Libs.Kotlin){

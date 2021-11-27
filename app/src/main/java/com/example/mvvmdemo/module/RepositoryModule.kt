@@ -1,7 +1,7 @@
 package com.example.mvvmdemo.module
 
-import com.godgod.data.repository.MovieRepository
 import com.godgod.data.repository.MovieRepositoryImpl
+import com.godgod.domain.repository.MovieRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

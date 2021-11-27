@@ -1,8 +1,8 @@
 package com.godgod.feature
 
 import com.godgod.feature.base.ViewState
-import com.godgod.shared.model.Movie
-import com.godgod.shared.model.MovieDetail
+import com.godgod.domain.model.Movie
+import com.godgod.domain.model.MovieDetail
 
 data class MainViewState(
     val movieListState: MovieListState = MovieListState.Idle,

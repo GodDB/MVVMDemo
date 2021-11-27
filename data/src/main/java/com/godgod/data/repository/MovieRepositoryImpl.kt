@@ -7,16 +7,11 @@ import com.godgod.data.local.mapper.MovieLocalMapper
 import com.godgod.data.network.MovieDataSource
 import com.godgod.data.network.mapper.MovieDetailRemoteMapper
 import com.godgod.data.network.mapper.MovieRemoteMapper
+import com.godgod.domain.repository.MovieRepository
 import com.godgod.shared.extension.getOrDefaultBlock
-import com.godgod.shared.model.Movie
-import com.godgod.shared.model.MovieDetail
+import com.godgod.domain.model.Movie
+import com.godgod.domain.model.MovieDetail
 import javax.inject.Inject
-
-interface MovieRepository {
-
-    suspend fun getPopularMovies(): List<Movie>
-    suspend fun getMovie(id: Int): MovieDetail
-}
 
 class MovieRepositoryImpl @Inject constructor(
     private val movieDataSource: MovieDataSource,

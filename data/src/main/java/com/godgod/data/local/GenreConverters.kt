@@ -1,7 +1,7 @@
 package com.godgod.data.local
 
 import androidx.room.TypeConverter
-import com.godgod.shared.model.GenreSingle
+import com.godgod.domain.model.GenreSingle
 
 /**
  * converts List to and from String

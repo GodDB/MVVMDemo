@@ -2,7 +2,7 @@ package com.godgod.data.local.mapper
 
 import com.godgod.data.base.BaseLocalMapper
 import com.godgod.data.local.model.MovieDetailEntity
-import com.godgod.shared.model.MovieDetail
+import com.godgod.domain.model.MovieDetail
 import javax.inject.Inject
 
 class MovieDetailMapper @Inject constructor() : BaseLocalMapper<MovieDetail, MovieDetailEntity> {

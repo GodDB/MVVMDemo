@@ -11,13 +11,9 @@ import com.godgod.feature.base.GeneralAdapter
 import com.godgod.feature.base.GeneralViewHolder
 import com.godgod.feature.databinding.ActivityMainBinding
 import com.godgod.feature.databinding.ViewholderMovieItemBinding
-import com.godgod.shared.model.Movie
+import com.godgod.domain.model.Movie
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
