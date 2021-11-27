@@ -58,7 +58,8 @@ object Libs {
 
     object Test {
         const val junit = "junit:junit:4.13.2"
-        const val junitExt = "androidx.test.ext:junit:1.1.3"
+        const val androidJunit = "androidx.test.ext:junit:1.1.3"
+        const val androidJunitExt = "androidx.test.ext:junit-ktx:1.1.3"
         const val espresso = "androidx.test.espresso:espresso-core:3.4.0"
         const val mockitoKotlin = "org.mockito.kotlin:mockito-kotlin:3.2.0"
         const val coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.kotlin}"

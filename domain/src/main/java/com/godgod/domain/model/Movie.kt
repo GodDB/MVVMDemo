@@ -7,4 +7,10 @@ data class Movie(
     val popularity: Double,
     val poster_path: String,
     val genre_ids: List<Int>
-)
+) {
+    companion object {
+        fun getDefault() : Movie {
+            return Movie(3, "", "", 0.0, "", listOf(1,2,3))
+        }
+    }
+}

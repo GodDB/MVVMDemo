@@ -79,7 +79,8 @@ dependencies {
 
     with(Libs.Test){
         testImplementation(junit)
-        androidTestImplementation(junitExt)
+        androidTestImplementation(androidJunit)
+        androidTestImplementation(androidJunitExt)
         androidTestImplementation(espresso)
         testImplementation(mockitoKotlin)
     }

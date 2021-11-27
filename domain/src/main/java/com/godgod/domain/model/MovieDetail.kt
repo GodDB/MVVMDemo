@@ -6,4 +6,10 @@ data class MovieDetail(
     val overview: String,
     val poster_path: String,
     val genres: List<GenreSingle>
-)
+) {
+    companion object {
+        fun getDefault() : MovieDetail {
+            return MovieDetail(3, "", "", "", listOf(GenreSingle.getDefault()))
+        }
+    }
+}

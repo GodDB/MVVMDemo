@@ -54,13 +54,4 @@ dependencies {
     with(Libs.Android) {
         implementation(core)
     }
-
-    with(Libs.Test){
-        testImplementation(junit)
-        androidTestImplementation(junitExt)
-        androidTestImplementation(espresso)
-        testImplementation(mockitoKotlin)
-    }
-
-
 }

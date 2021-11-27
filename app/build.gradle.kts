@@ -1,4 +1,3 @@
-
 import java.io.FileInputStream
 import java.util.*
 
@@ -27,20 +26,30 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "API_KEY", (apikeyProperties["API_KEY"] as? String) ?: "Insert your Api Key")
+        buildConfigField(
+            "String",
+            "API_KEY",
+            (apikeyProperties["API_KEY"] as? String) ?: "Insert your Api Key"
+        )
     }
 
     buildTypes {
         getByName("debug") {
             isShrinkResources = false
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
 
         getByName("release") {
             isShrinkResources = true
             isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
 
     }
@@ -64,7 +73,7 @@ dependencies {
     implementation(project(mapOf("path" to ":domain")))
     implementation(project(mapOf("path" to ":shared")))
 
-    with(Libs.Kotlin){
+    with(Libs.Kotlin) {
         implementation(kotlin)
         implementation(coroutine)
         implementation(coroutineAndroid)
@@ -81,9 +90,17 @@ dependencies {
     with(Libs.Android.JetPack) {
         implementation(viewModel)
         implementation(liveData)
+
         implementation(hilt_android)
         kapt(hilt_compiler)
+        // For Robolectric tests.
+        testImplementation(hilt_test)
+        kaptTest(hilt_compiler)
+        // For instrumented tests.
+        androidTestImplementation(hilt_test)
+        kaptAndroidTest(hilt_compiler)
         kapt(viewModel_hilt)
+
         implementation(activityKtx)
 
         implementation(room)
@@ -91,9 +108,10 @@ dependencies {
         kapt(room_compiler)
     }
 
-    with(Libs.Test){
+    with(Libs.Test) {
         testImplementation(junit)
-        androidTestImplementation(junitExt)
+        androidTestImplementation(androidJunit)
+        androidTestImplementation(androidJunitExt)
         androidTestImplementation(espresso)
         testImplementation(mockitoKotlin)
     }

@@ -85,13 +85,13 @@ dependencies {
         kaptTest(hilt_compiler)
         // For instrumented tests.
         androidTestImplementation(hilt_test)
-        kaptAndroidTest(hilt_test)
-
+        kaptAndroidTest(hilt_compiler)
     }
 
     with(Libs.Test) {
         testImplementation(junit)
-        androidTestImplementation(junitExt)
+        androidTestImplementation(androidJunit)
+        androidTestImplementation(androidJunitExt)
         androidTestImplementation(espresso)
         testImplementation(mockitoKotlin)
     }
