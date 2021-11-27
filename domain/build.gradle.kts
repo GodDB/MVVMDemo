@@ -1,4 +1,3 @@
-
 import java.io.FileInputStream
 import java.util.*
 
@@ -26,18 +25,28 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "API_KEY", (apikeyProperties["API_KEY"] as? String) ?: "Insert your Api Key")
+        buildConfigField(
+            "String",
+            "API_KEY",
+            (apikeyProperties["API_KEY"] as? String) ?: "Insert your Api Key"
+        )
     }
 
     buildTypes {
         getByName("debug") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
 
         getByName("release") {
             isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
 
     }
@@ -58,7 +67,7 @@ dependencies {
 
     implementation(project(mapOf("path" to ":shared")))
 
-    with(Libs.Kotlin){
+    with(Libs.Kotlin) {
         implementation(kotlin)
         implementation(coroutine)
         implementation(coroutineAndroid)
@@ -71,10 +80,16 @@ dependencies {
     with(Libs.Android.JetPack) {
         implementation(hilt_android)
         kapt(hilt_compiler)
-        androidTestImplementation(hilt_unit_test)
+        // For Robolectric tests.
+        testImplementation(hilt_test)
+        kaptTest(hilt_compiler)
+        // For instrumented tests.
+        androidTestImplementation(hilt_test)
+        kaptAndroidTest(hilt_test)
+
     }
 
-    with(Libs.Test){
+    with(Libs.Test) {
         testImplementation(junit)
         androidTestImplementation(junitExt)
         androidTestImplementation(espresso)

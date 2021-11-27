@@ -76,7 +76,7 @@ object Libs {
             const val hilt_plugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.Android.hilt}"
             const val hilt_android = "com.google.dagger:hilt-android:${Versions.Android.hilt}"
             const val hilt_compiler = "com.google.dagger:hilt-android-compiler:${Versions.Android.hilt}"
-            const val hilt_unit_test = "com.google.dagger:hilt-android-compiler:${Versions.Android.hilt}"
+            const val hilt_test = "com.google.dagger:hilt-android-testing:${Versions.Android.hilt}"
 
             const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Android.viewModel}"
             const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.Android.liveData}"
