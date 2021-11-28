@@ -1,49 +1,53 @@
-
 def hasLibraryPlugin = pluginManager.hasPlugin("com.android.library")
 def hasApplicationPlugin = pluginManager.hasPlugin("com.android.application")
 
-if(hasApplicationPlugin || hasLibraryPlugin) {
+if (hasLibraryPlugin || hasApplicationPlugin) {
 
     android {
-        compileSdkVersion(App.compileSdk)
-        buildToolsVersion(App.buildToolsVersion)
+        compileSdkVersion App.compileSdk
+        buildToolsVersion App.buildToolsVersion
 
         defaultConfig {
-            applicationId(App.appId)
-            minSdkVersion(App.minSdk)
-            targetSdkVersion(App.targetSdk)
+            if(hasApplicationPlugin) {
+                applicationId App.appId
+            }
+            targetSdkVersion App.targetSdk
+            minSdkVersion App.minSdk
+            versionCode 1
+            versionName "1.0"
 
-            versionCode(App.versionCode)
-            versionName(App.versionName)
+            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+            if (hasLibraryPlugin) {
+                consumerProguardFiles("consumer-rulse.pro")
+            }
         }
 
         buildTypes {
-            getByName("debug") {
-                isShrinkResources = false
-                isMinifyEnabled = false
-                proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            debug {
+                if(hasApplicationPlugin){
+                    shrinkResources false
+                }
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             }
 
-            getByName("release") {
-                isShrinkResources = true
-                isMinifyEnabled = true
-                proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            release {
+                if(hasApplicationPlugin){
+                    shrinkResources true
+                }
+                minifyEnabled true
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             }
-
         }
+
         compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_1_8
-            targetCompatibility = JavaVersion.VERSION_1_8
-        }
-        kotlinOptions {
-            jvmTarget = "1.8"
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
         }
 
-        buildFeatures {
-            dataBinding = true
+        kotlinOptions {
+            jvmTarget = '1.8'
         }
     }
-
 }

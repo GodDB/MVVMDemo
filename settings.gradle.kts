@@ -3,5 +3,5 @@ rootProject.name = "MVVMDemo"
 include(":domain")
 include(":data")
 include(":feature")
-include(":test")
 include(":shared")
+include(":test")
