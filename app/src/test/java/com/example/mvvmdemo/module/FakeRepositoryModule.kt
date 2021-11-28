@@ -4,7 +4,6 @@ import com.godgod.domain.fake.FakeMovieRepositoryImpl
 import com.godgod.domain.repository.MovieRepository
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
 
@@ -13,10 +12,8 @@ import dagger.hilt.testing.TestInstallIn
     components = [SingletonComponent::class],
     replaces = [RepositoryModule::class]
 )
-object FakeRepositoryModule {
+abstract class FakeRepositoryModule {
 
-    @Provides
-    fun provideFakeMovieRepository() : MovieRepository {
-        return FakeMovieRepositoryImpl()
-    }
+    @Binds
+    abstract fun bindMovieRepository(fakeMovieRepositoryImpl: FakeMovieRepositoryImpl): MovieRepository
 }

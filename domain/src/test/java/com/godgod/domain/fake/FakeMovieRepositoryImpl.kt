@@ -5,7 +5,7 @@ import com.godgod.domain.model.MovieDetail
 import com.godgod.domain.repository.MovieRepository
 import javax.inject.Inject
 
-class FakeMovieRepositoryImpl : MovieRepository {
+class FakeMovieRepositoryImpl @Inject constructor(): MovieRepository {
     override suspend fun getPopularMovies(): List<Movie> {
         return listOf(Movie.getDefault())
     }
