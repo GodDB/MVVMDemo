@@ -2,11 +2,12 @@ package com.godgod.feature.databinding
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.bumptech.glide.Glide
+import com.godgod.feature.base.GlideApp
 
 @BindingAdapter("glide_url")
 fun ImageView.bindGlide(imageUrl: String?) {
-    Glide.with(context)
+    GlideApp.with(context)
         .load(imageUrl)
         .into(this)
 }
+
