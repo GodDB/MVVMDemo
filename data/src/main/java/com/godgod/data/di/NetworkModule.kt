@@ -1,4 +1,4 @@
-package com.example.mvvmdemo.module
+package com.godgod.data.di
 
 import com.example.mvvmdemo.network.service.MovieService
 import com.godgod.data.Config

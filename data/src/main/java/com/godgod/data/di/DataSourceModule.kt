@@ -1,4 +1,4 @@
-package com.example.mvvmdemo.module
+package com.godgod.data.di
 
 import com.godgod.data.local.MovieLocalSource
 import com.godgod.data.local.MovieLocalSourceImpl

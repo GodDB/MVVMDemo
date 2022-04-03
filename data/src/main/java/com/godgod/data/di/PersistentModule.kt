@@ -1,4 +1,4 @@
-package com.example.mvvmdemo.module
+package com.godgod.data.di
 
 import android.content.Context
 import com.godgod.data.local.db.DemoDatabase
