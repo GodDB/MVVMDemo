@@ -1,6 +1,3 @@
-import java.io.FileInputStream
-import java.util.*
-
 plugins {
     id("com.android.library")
     kotlin("android")
@@ -10,7 +7,7 @@ plugins {
 
 dependencies {
 
-    implementation(project(mapOf("path" to ":shared")))
+    implementation(project(":shared"))
 
     with(Libs.Kotlin) {
         implementation(kotlin)
@@ -25,19 +22,9 @@ dependencies {
     with(Libs.Android.JetPack) {
         implementation(hilt_android)
         kapt(hilt_compiler)
-        // For Robolectric tests.
-        testImplementation(hilt_test)
-        kaptTest(hilt_compiler)
-        // For instrumented tests.
-        androidTestImplementation(hilt_test)
-        kaptAndroidTest(hilt_compiler)
     }
 
     with(Libs.Test) {
-        testImplementation(junit)
-        androidTestImplementation(androidJunit)
-        androidTestImplementation(androidJunitExt)
-        androidTestImplementation(espresso)
         testImplementation(mockitoKotlin)
         testImplementation(coroutineTest)
         testImplementation(androidTest)
