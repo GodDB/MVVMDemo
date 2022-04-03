@@ -4,17 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="onClick"
+            type="kotlin.jvm.functions.Function1" />
         <variable
             name="data"
             type="com.godgod.domain.model.Movie" />
-
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> onClick.invoke(data) }">
 
         <ImageView
             android:id="@+id/iv_thumbnail"

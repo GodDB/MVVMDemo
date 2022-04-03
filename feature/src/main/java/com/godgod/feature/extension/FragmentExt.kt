@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 object FragmentExt {
 
-    inline fun Fragment.repeatOnStarted(crossinline block : CoroutineScope.() -> Unit) {
+    inline fun Fragment.repeatOnStarted(crossinline block : suspend CoroutineScope.() -> Unit) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 this.block()

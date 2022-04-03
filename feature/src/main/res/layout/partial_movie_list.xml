@@ -3,10 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <import type="com.godgod.feature.MovieListState"/>
+        <import type="com.godgod.feature.intent.state.MovieListState"/>
+        <variable
+            name="adapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
         <variable
             name="state"
-            type="com.godgod.feature.MovieListState" />
+            type="com.godgod.feature.intent.state.MovieListState" />
 
     </data>
 
@@ -18,6 +21,7 @@
             android:id="@+id/rv_list"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:adapter="@{adapter}"
             app:submitList="@{state.successOrNull.movies}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"

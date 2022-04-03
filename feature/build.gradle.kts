@@ -26,6 +26,7 @@ dependencies {
         implementation(appCompat)
         implementation(material)
         implementation(constraintLayout)
+        implementation(recyclerView)
         implementation(lifecycle_runtime_ktx)
     }
 

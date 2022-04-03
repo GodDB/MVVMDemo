@@ -6,7 +6,7 @@ import com.godgod.feature.base.GlideApp
 
 @BindingAdapter("glide_url")
 fun ImageView.bindGlide(imageUrl: String?) {
-    GlideApp.with(context)
+    GlideApp.with(this)
         .load(imageUrl)
         .into(this)
 }

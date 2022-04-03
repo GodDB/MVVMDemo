@@ -27,6 +27,7 @@ object Versions {
         const val lifecycle = "2.4.1"
         const val activityKtx = "1.4.0"
         const val fragmentKtx = "1.4.0"
+        const val recyclerView = "1.2.0"
 
         const val hilt = "2.37"
 
@@ -74,6 +75,7 @@ object Libs {
         const val material = "com.google.android.material:material:${Versions.Android.material}"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.Android.constraintLayout}"
         const val lifecycle_runtime_ktx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Android.lifecycle}"
+        const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.Android.recyclerView}"
 
 
         object JetPack {

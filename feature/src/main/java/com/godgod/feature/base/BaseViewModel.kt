@@ -2,6 +2,9 @@ package com.godgod.feature.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.godgod.feature.intent.event.ViewEvent
+import com.godgod.feature.intent.sideEffect.ViewSideEffect
+import com.godgod.feature.intent.state.ViewState
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -31,20 +34,21 @@ abstract class BaseViewModel : ViewModel() {
         }
     }
 
-    protected fun<T> setState(partialState : T) {
-        val newState = viewStateReduce(_state.value, partialState)
-        _state.value = newState
+    protected fun <T> setState(partialState: T) {
+        _state.update {
+            viewStateUpdate(it, partialState)
+        }
     }
 
-    protected fun<T : ViewSideEffect> setSideEffect(sideEffect : T) {
+    protected fun <T : ViewSideEffect> setSideEffect(sideEffect: T) {
         viewModelScope.launch {
             _sideEffect.emit(sideEffect)
         }
     }
 
-    protected abstract fun <T> viewStateReduce(prevState: ViewState, partialState: T) : ViewState
+    protected abstract fun <T> viewStateUpdate(prevState: ViewState, partialState: T): ViewState
 
-    protected abstract fun handleEvent(viewEvent: ViewEvent)
+    protected abstract suspend fun handleEvent(viewEvent: ViewEvent)
 
 
 }

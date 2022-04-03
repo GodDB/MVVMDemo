@@ -5,11 +5,11 @@
 
     <data>
 
-        <import type="com.godgod.feature.MovieDetailState" />
+        <import type="com.godgod.feature.intent.state.MovieDetailState" />
 
         <variable
             name="state"
-            type="com.godgod.feature.MovieDetailState" />
+            type="com.godgod.feature.intent.state.MovieDetailState" />
     </data>
 
     <FrameLayout
