@@ -20,8 +20,8 @@ android {
 }
 
 dependencies {
-    implementation(project(mapOf("path" to ":domain")))
-    implementation(project(mapOf("path" to ":shared")))
+    implementation(project(":domain"))
+    implementation(project(":shared"))
 
     with(Libs.Kotlin){
         implementation(kotlin)
@@ -43,10 +43,6 @@ dependencies {
     }
 
     with(Libs.Test){
-        testImplementation(junit)
-        androidTestImplementation(androidJunit)
-        androidTestImplementation(androidJunitExt)
-        androidTestImplementation(espresso)
         testImplementation(mockitoKotlin)
         testImplementation(coroutineTest)
         testImplementation(androidTest)
