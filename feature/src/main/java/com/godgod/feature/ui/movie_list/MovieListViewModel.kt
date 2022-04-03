@@ -1,7 +1,8 @@
-package com.godgod.feature
+package com.godgod.feature.ui.movie_list
 
 import com.godgod.domain.MovieDetailUseCase
 import com.godgod.domain.MovieListUseCase
+import com.godgod.feature.R
 import com.godgod.feature.base.BaseViewModel
 import com.godgod.feature.intent.event.MainViewEvent
 import com.godgod.feature.intent.event.ViewEvent

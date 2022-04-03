@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragment_movie_list"
-        android:name="com.godgod.feature.MovieListFragment"
+        android:name="com.godgod.feature.ui.movie_list.MovieListFragment"
         android:label="movieList"
         tools:layout="@layout/fragment_movie_list">
 

@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MVVMDemo">
         <activity
-            android:name="com.godgod.feature.MainActivity"
+            android:name="com.godgod.feature.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

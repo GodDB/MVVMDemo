@@ -14,7 +14,7 @@ sealed class MovieListState {
     data class Success(val movies: List<Movie>) : MovieListState()
     object Idle : MovieListState()
 
-    fun getSuccessOrNull() : Success? = (this as? Success)
+    fun getSuccessOrNull(): Success? = (this as? Success)
 }
 
 sealed class MovieDetailState {
@@ -22,5 +22,5 @@ sealed class MovieDetailState {
     data class Success(val detailMovie: MovieDetail) : MovieDetailState()
     object Idle : MovieDetailState()
 
-    fun getSuccessOrNull() : Success? = (this as? Success)
+    fun getSuccessOrNull(): Success? = (this as? Success)
 }

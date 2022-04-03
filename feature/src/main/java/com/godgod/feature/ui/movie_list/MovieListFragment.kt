@@ -1,8 +1,10 @@
-package com.godgod.feature
+package com.godgod.feature.ui.movie_list
 
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.godgod.domain.model.Movie
+import com.godgod.feature.BR
+import com.godgod.feature.R
 import com.godgod.feature.base.BaseFragment
 import com.godgod.feature.databinding.FragmentMovieListBinding
 import com.godgod.feature.extension.FragmentExt.repeatOnStarted

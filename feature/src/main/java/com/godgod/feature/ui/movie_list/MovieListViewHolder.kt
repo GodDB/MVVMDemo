@@ -1,4 +1,4 @@
-package com.godgod.feature
+package com.godgod.feature.ui.movie_list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
