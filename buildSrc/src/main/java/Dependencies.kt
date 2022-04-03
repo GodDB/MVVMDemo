@@ -1,7 +1,7 @@
 object App {
-    const val compileSdk = 30
+    const val compileSdk = 31
     const val minSdk = 21
-    const val targetSdk = 30
+    const val targetSdk = 31
     const val versionCode = 1
     const val versionName = "1.0.0"
 
@@ -11,11 +11,11 @@ object App {
 
 object Versions {
 
-    const val gradle = "4.1.3"
+    const val gradle = "7.0.2"
 
     object Kotlin {
-        const val kotlin = "1.4.31"
-        const val coroutineTest = "1.4.2"
+        const val kotlin = "1.6.0"
+        const val coroutineTest = "1.6.0"
         const val coroutineAndroid = "1.5.0"
     }
 
@@ -29,10 +29,10 @@ object Versions {
 
         const val viewModel = "2.3.1"
         const val liveData = "2.3.1"
-        const val hilt = "2.35"
+        const val hilt = "2.37"
         const val viewModel_hilt = "1.0.0"
 
-        const val room = "2.3.0"
+        const val room = "2.4.0"
     }
 
     object Network {

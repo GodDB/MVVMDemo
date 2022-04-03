@@ -8,10 +8,6 @@ plugins {
     id("dagger.hilt.android.plugin")
 }
 
-val apikeyPropertiesFile = rootProject.file("api_key.properties")
-val apikeyProperties = Properties()
-apikeyProperties.load(FileInputStream(apikeyPropertiesFile))
-
 android {
     buildFeatures {
         dataBinding = true
