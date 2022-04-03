@@ -35,6 +35,8 @@ dependencies {
         implementation(hilt_android)
         kapt(hilt_compiler)
         implementation(activityKtx)
+        implementation(navigation_fragment_ktx)
+        implementation(navigation_view_ktx)
     }
 
     with(Libs.Test) {

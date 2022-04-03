@@ -33,6 +33,7 @@ object Versions {
         const val viewModel_hilt = "1.0.0"
 
         const val room = "2.4.0"
+        const val navigation = "2.4.1"
     }
 
     object Network {
@@ -91,6 +92,9 @@ object Libs {
             const val room = "androidx.room:room-runtime:${Versions.Android.room}"
             const val room_compiler = "androidx.room:room-compiler:${Versions.Android.room}"
             const val roomKtx = "androidx.room:room-ktx:${Versions.Android.room}"
+
+            const val navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:${Versions.Android.navigation}"
+            const val navigation_view_ktx = "androidx.navigation:navigation-ui-ktx:${Versions.Android.navigation}"
         }
     }
 
