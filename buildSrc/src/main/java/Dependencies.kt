@@ -20,17 +20,15 @@ object Versions {
     }
 
     object Android {
-        const val core = "1.6.0"
-        const val appCompat = "1.3.0"
-        const val material = "1.4.0"
-        const val constraintLayout = "2.0.4"
-        const val lifecycle = "2.2.0"
-        const val activityKtx = "1.3.1"
+        const val core = "1.7.0"
+        const val appCompat = "1.4.0"
+        const val material = "1.5.0"
+        const val constraintLayout = "2.1.3"
+        const val lifecycle = "2.4.1"
+        const val activityKtx = "1.4.0"
+        const val fragmentKtx = "1.4.0"
 
-        const val viewModel = "2.3.1"
-        const val liveData = "2.3.1"
         const val hilt = "2.37"
-        const val viewModel_hilt = "1.0.0"
 
         const val room = "2.4.0"
         const val navigation = "2.4.1"
@@ -75,7 +73,7 @@ object Libs {
         const val appCompat = "androidx.appcompat:appcompat:${Versions.Android.appCompat}"
         const val material = "com.google.android.material:material:${Versions.Android.material}"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.Android.constraintLayout}"
-        const val lifecycle = "androidx.lifecycle:lifecycle-extensions:${Versions.Android.lifecycle}"
+        const val lifecycle_runtime_ktx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Android.lifecycle}"
 
 
         object JetPack {
@@ -84,10 +82,9 @@ object Libs {
             const val hilt_compiler = "com.google.dagger:hilt-android-compiler:${Versions.Android.hilt}"
             const val hilt_test = "com.google.dagger:hilt-android-testing:${Versions.Android.hilt}"
 
-            const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Android.viewModel}"
-            const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.Android.liveData}"
-            const val viewModel_hilt = "androidx.hilt:hilt-compiler:${Versions.Android.viewModel_hilt}"
+            const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Android.lifecycle}"
             const val activityKtx = "androidx.activity:activity-ktx:${Versions.Android.activityKtx}"
+            const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.Android.fragmentKtx}"
 
             const val room = "androidx.room:room-runtime:${Versions.Android.room}"
             const val room_compiler = "androidx.room:room-compiler:${Versions.Android.room}"

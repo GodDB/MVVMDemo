@@ -26,15 +26,15 @@ dependencies {
         implementation(appCompat)
         implementation(material)
         implementation(constraintLayout)
-        implementation(lifecycle)
+        implementation(lifecycle_runtime_ktx)
     }
 
     with(Libs.Android.JetPack) {
         implementation(viewModel)
-        implementation(liveData)
         implementation(hilt_android)
         kapt(hilt_compiler)
         implementation(activityKtx)
+        implementation(fragmentKtx)
         implementation(navigation_fragment_ktx)
         implementation(navigation_view_ktx)
     }

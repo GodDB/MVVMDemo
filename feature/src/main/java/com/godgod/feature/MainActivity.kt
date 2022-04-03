@@ -12,8 +12,10 @@ import com.godgod.feature.base.GeneralViewHolder
 import com.godgod.feature.databinding.ActivityMainBinding
 import com.godgod.feature.databinding.ViewholderMovieItemBinding
 import com.godgod.domain.model.Movie
+import com.godgod.feature.extension.ActivityExt.repeatOnStarted
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -53,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeState() {
-        lifecycleScope.launchWhenStarted {
+        repeatOnStarted {
             viewModel.state.collect { state ->
                 binding.setVariable(BR.state, state)
             }
