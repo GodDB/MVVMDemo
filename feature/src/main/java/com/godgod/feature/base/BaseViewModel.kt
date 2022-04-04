@@ -46,9 +46,8 @@ abstract class BaseViewModel : ViewModel() {
         }
     }
 
-    protected abstract fun <T> viewStateUpdate(prevState: ViewState, partialState: T): ViewState
-
     protected abstract suspend fun handleEvent(viewEvent: ViewEvent)
+    protected abstract fun <T> viewStateUpdate(prevState: ViewState, partialState: T): ViewState
 
 
 }

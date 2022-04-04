@@ -1,5 +1,7 @@
 package com.godgod.shared.model
 
+import kotlin.jvm.Throws
+
 
 /**
  * A generic class that holds a value
@@ -23,6 +25,11 @@ val DataResult<*>.succeeded
 
 fun <T> DataResult<T>.successOr(fallback: T): T {
     return (this as? DataResult.Success<T>)?.data ?: fallback
+}
+
+@Throws
+fun DataResult<*>.errorOrThrow() : Throwable {
+    return (this as DataResult.Error).exception
 }
 
 val <T> DataResult<T>.data: T?

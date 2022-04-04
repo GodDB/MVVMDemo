@@ -10,6 +10,7 @@ import com.godgod.feature.databinding.FragmentMovieListBinding
 import com.godgod.feature.extension.FragmentExt.repeatOnStarted
 import com.godgod.feature.intent.event.MainViewEvent
 import com.godgod.feature.intent.sideEffect.MainViewSideEffect
+import com.godgod.feature.ui.movie_list.data.MovieViewData
 import com.godgod.feature.util.CommonAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +22,7 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>(R.layout.fragme
     override fun setup() {
         initBinding {
             lifecycleOwner = viewLifecycleOwner
-            adapter = CommonAdapter.buildOf<Movie>(
+            adapter = CommonAdapter.buildOf<MovieViewData>(
                 viewHolderFactory = { parent, _ -> MovieListViewHolder.create(parent, viewModel.onClickMovieItem) },
                 areItemsTheSame = { old, new -> old.id == new.id },
                 areContentsTheSame = { old, new -> old == new }

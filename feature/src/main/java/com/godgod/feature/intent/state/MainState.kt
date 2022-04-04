@@ -2,6 +2,8 @@ package com.godgod.feature.intent.state
 
 import com.godgod.domain.model.Movie
 import com.godgod.domain.model.MovieDetail
+import com.godgod.feature.ui.movie_list.data.MovieViewData
+import kotlin.jvm.Throws
 
 data class MainViewState(
     val movieListState: MovieListState = MovieListState.Idle,
@@ -11,10 +13,16 @@ data class MainViewState(
 
 sealed class MovieListState {
     object Loading : MovieListState()
-    data class Success(val movies: List<Movie>) : MovieListState()
+    data class Success(val movies: List<MovieViewData>) : MovieListState()
     object Idle : MovieListState()
 
     fun getSuccessOrNull(): Success? = (this as? Success)
+
+    @Throws
+    fun getSuccessOrThrow() : Success {
+        check(this is Success) { "MovieListState != Success" }
+        return this
+    }
 }
 
 sealed class MovieDetailState {
