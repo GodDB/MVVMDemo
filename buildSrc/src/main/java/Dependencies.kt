@@ -92,6 +92,7 @@ object Libs {
             const val room_compiler = "androidx.room:room-compiler:${Versions.Android.room}"
             const val roomKtx = "androidx.room:room-ktx:${Versions.Android.room}"
 
+            const val navigation_safe_args_plugin = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.Android.navigation}"
             const val navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:${Versions.Android.navigation}"
             const val navigation_view_ktx = "androidx.navigation:navigation-ui-ktx:${Versions.Android.navigation}"
         }

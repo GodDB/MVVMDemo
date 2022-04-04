@@ -1,7 +1,9 @@
 package com.godgod.feature.ui.movie_list
 
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.godgod.domain.model.Movie
 import com.godgod.feature.BR
 import com.godgod.feature.R
@@ -47,5 +49,9 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>(R.layout.fragme
                 }
             }
         }
+    }
+
+    fun onClickMovieDetail(v : View) {
+
     }
 }
