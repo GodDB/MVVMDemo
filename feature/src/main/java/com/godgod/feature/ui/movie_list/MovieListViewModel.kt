@@ -2,6 +2,7 @@ package com.godgod.feature.ui.movie_list
 
 import com.godgod.domain.MovieDetailUseCase
 import com.godgod.domain.MovieListUseCase
+import com.godgod.domain.model.Movie
 import com.godgod.feature.R
 import com.godgod.feature.base.BaseViewModel
 import com.godgod.feature.intent.event.MainViewEvent
@@ -26,6 +27,10 @@ class MovieListViewModel @Inject constructor(
 
     override val initialState: () -> ViewState
         get() = { MainViewState() }
+
+    val onClickMovieItem : (Movie) -> Unit = { movie ->
+        setEvent(MainViewEvent.ClickMovieItem(movie.id))
+    }
 
     init {
         setEvent(MainViewEvent.LoadMovieList)

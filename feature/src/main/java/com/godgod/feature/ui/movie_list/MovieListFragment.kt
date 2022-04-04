@@ -22,11 +22,7 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>(R.layout.fragme
         initBinding {
             lifecycleOwner = viewLifecycleOwner
             adapter = CommonAdapter.buildOf<Movie>(
-                viewHolderFactory = { parent, viewType ->
-                    MovieListViewHolder.create(parent) { movie ->
-                        viewModel.setEvent(MainViewEvent.ClickMovieItem(movie.id))
-                    }
-                },
+                viewHolderFactory = { parent, _ -> MovieListViewHolder.create(parent, viewModel.onClickMovieItem) },
                 areItemsTheSame = { old, new -> old.id == new.id },
                 areContentsTheSame = { old, new -> old == new }
             )
