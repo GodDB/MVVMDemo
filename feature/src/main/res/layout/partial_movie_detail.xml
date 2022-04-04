@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="onClickMovieDetail"
+            type="kotlin.jvm.functions.Function1" />
+
         <import type="com.godgod.feature.intent.state.MovieDetailState" />
 
         <variable
@@ -20,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
+            android:onClick="@{() -> onClickMovieDetail.invoke(state.successOrNull.detailMovie) }"
             app:cardElevation="0sp"
             app:cardCornerRadius="12sp">
 

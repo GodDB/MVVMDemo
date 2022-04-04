@@ -13,6 +13,7 @@
         <action
             android:id="@+id/action_fragment_movie_list_to_fragment_movie_detail"
             app:destination="@id/fragment_movie_detail" />
+
     </fragment>
 
     <fragment
@@ -20,6 +21,9 @@
         android:name="com.godgod.feature.ui.movie_detail.MovieDetailFragment"
         tools:layout="@layout/fragment_movie_detail">
 
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
 
     </fragment>
 </navigation>

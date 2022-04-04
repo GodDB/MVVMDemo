@@ -2,6 +2,7 @@ package com.godgod.feature.ui.movie_list
 
 import com.godgod.domain.MovieDetailUseCase
 import com.godgod.domain.MovieListUseCase
+import com.godgod.domain.model.MovieDetail
 import com.godgod.feature.R
 import com.godgod.feature.base.BaseViewModel
 import com.godgod.feature.intent.event.MainViewEvent
@@ -29,6 +30,10 @@ class MovieListViewModel @Inject constructor(
 
     val onClickMovieItem: (MovieViewData) -> Unit = { movie ->
         setEvent(MainViewEvent.ClickMovieItem(movie.id))
+    }
+
+    val onClickMovieDetail: (MovieDetail) -> Unit = { movieDetail ->
+        setSideEffect(MainViewSideEffect.NavigateToMovieDetail(movieDetail.id))
     }
 
     init {
