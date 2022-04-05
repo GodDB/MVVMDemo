@@ -5,12 +5,6 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-
-@BindingAdapter("adapter")
-internal fun RecyclerView.setAdapter(adapter: RecyclerView.Adapter<*>) {
-    this.adapter = adapter
-}
-
 @BindingAdapter("itemAnimator")
 internal fun RecyclerView.setItemAnimator(itemAnimator: RecyclerView.ItemAnimator?) {
     this.itemAnimator = itemAnimator

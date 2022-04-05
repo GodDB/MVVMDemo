@@ -40,7 +40,7 @@ abstract class BaseFragment<out T : ViewDataBinding>(
         _binding = null
     }
 
-    protected inline fun initBinding(initBlock: T.() -> Unit) {
+    protected fun initBinding(initBlock: T.() -> Unit) {
         initBlock(binding)
         binding.executePendingBindings()
     }

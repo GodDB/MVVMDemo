@@ -2,11 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-        <import type="com.godgod.feature.intent.state.MovieListState"/>
-        <variable
-            name="adapter"
-            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+        <import type="com.godgod.feature.intent.state.MovieListState" />
+
         <variable
             name="state"
             type="com.godgod.feature.intent.state.MovieListState" />
@@ -21,23 +21,22 @@
             android:id="@+id/rv_list"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:adapter="@{adapter}"
-            app:submitList="@{state.successOrNull.movies}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:submitList="@{state.successOrNull.movies}" />
 
         <include
+            layout="@layout/partial_loading"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            layout="@layout/partial_loading"
-            app:visible="@{state instanceof MovieListState.Loading}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:visibility="gone"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visible="@{state instanceof MovieListState.Loading}"
+            tools:visibility="gone" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
