@@ -1,6 +1,5 @@
 package com.godgod.feature.extension
 
-import android.app.Activity
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -10,7 +9,7 @@ import kotlinx.coroutines.launch
 
 object ActivityExt {
 
-    inline fun ComponentActivity.repeatOnStarted(crossinline block : suspend CoroutineScope.() -> Unit) {
+    inline fun ComponentActivity.repeatOnStarted(crossinline block: suspend CoroutineScope.() -> Unit) {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 this.block()

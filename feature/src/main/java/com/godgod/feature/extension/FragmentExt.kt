@@ -1,5 +1,6 @@
 package com.godgod.feature.extension
 
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -9,11 +10,18 @@ import kotlinx.coroutines.launch
 
 object FragmentExt {
 
-    inline fun Fragment.repeatOnStarted(crossinline block : suspend CoroutineScope.() -> Unit) {
+    inline fun Fragment.repeatFromStartToStop(crossinline block : suspend CoroutineScope.() -> Unit) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 this.block()
             }
         }
+    }
+
+    fun Fragment.startSharedElementTransition() {
+        postponeEnterTransition()
+        this.view?.doOnPreDraw {
+            startPostponedEnterTransition()
+        } ?: startPostponedEnterTransition()
     }
 }

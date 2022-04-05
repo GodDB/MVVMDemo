@@ -33,7 +33,7 @@ class MovieListViewModel @Inject constructor(
     }
 
     val onClickMovieDetail: (MovieDetail) -> Unit = { movieDetail ->
-        setSideEffect(MainViewSideEffect.NavigateToMovieDetail(movieDetail.id))
+        setSideEffect(MainViewSideEffect.NavigateToMovieDetail(movieDetail))
     }
 
     init {

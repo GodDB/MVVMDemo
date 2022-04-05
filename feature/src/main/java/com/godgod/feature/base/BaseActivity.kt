@@ -32,7 +32,10 @@ abstract class BaseActivity<out T : ViewDataBinding>(
     }
 
     protected abstract fun setup()
-    protected inline fun initBinding(block: T.() -> Unit) = block(binding)
+    protected inline fun initBinding(block: T.() -> Unit) {
+        block(binding)
+        binding.executePendingBindings()
+    }
     protected open fun observeViewModel() {}
 
     interface ParamFactory<T> {

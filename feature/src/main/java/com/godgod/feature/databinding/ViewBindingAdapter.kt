@@ -20,3 +20,9 @@ fun View.gone(gone : Boolean) {
         this.visibility = View.VISIBLE
     }
 }
+
+@BindingAdapter("bindTransitionName")
+fun View.transitionName(transitionName : String?) {
+    if(transitionName == null) return
+    this.transitionName = transitionName
+}

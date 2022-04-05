@@ -40,15 +40,20 @@ abstract class BaseFragment<out T : ViewDataBinding>(
         _binding = null
     }
 
-    protected inline fun initBinding(initBlock: T.() -> Unit) = initBlock(binding)
+    protected inline fun initBinding(initBlock: T.() -> Unit) {
+        initBlock(binding)
+        binding.executePendingBindings()
+    }
+
     protected abstract fun setup()
-    protected open fun observeViewModel() { }
+    protected open fun observeViewModel() {}
 
     interface ParamFactory<T> {
-        fun newInstance(param : T) : BaseFragment<*>
+        fun newInstance(param: T): BaseFragment<*>
     }
 
     interface NoParamFactory {
-        fun newInstance() : BaseFragment<*>
+        fun newInstance(): BaseFragment<*>
     }
+
 }

@@ -18,7 +18,6 @@ class MovieDetailViewModel @Inject constructor(
     private val safeArgs : MovieDetailFragmentArgs = savedStateHandle.asSafeArgs()
 
     init {
-
     }
 
     override val initialState: () -> ViewState

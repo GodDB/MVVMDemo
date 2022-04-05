@@ -22,8 +22,8 @@
         tools:layout="@layout/fragment_movie_detail">
 
         <argument
-            android:name="movieId"
-            app:argType="integer" />
+            android:name="movieDetail"
+            app:argType="com.godgod.domain.model.MovieDetail" />
 
     </fragment>
 </navigation>
