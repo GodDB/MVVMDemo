@@ -1,7 +1,14 @@
 package com.godgod.feature.ui.movie_list
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
@@ -17,9 +24,20 @@ import com.godgod.feature.util.CommonAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MovieListFragment : BaseFragment<FragmentMovieListBinding>(R.layout.fragment_movie_list) {
+class MovieListFragment : Fragment() {
 
     private val viewModel by viewModels<MovieListViewModel>()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return ComposeView(requireContext()).apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                MovieListScreen(viewModel = viewModel)
+            }
+        }
+    }
+
+/*
 
     override fun setup() {
         setupList()
@@ -55,6 +73,7 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>(R.layout.fragme
         val action = MovieListFragmentDirections.actionFragmentMovieListToFragmentMovieDetail(movieDetail)
         findNavController().navigate(action, transition)
     }
+*/
 
 
 }
