@@ -33,6 +33,13 @@ object Versions {
 
         const val room = "2.4.0"
         const val navigation = "2.4.1"
+
+        const val compose_kotlin_compiler_extension = "1.1.0"
+        const val compose_activity = "1.4.0"
+        const val compose_material = "1.1.0"
+        const val compose_animation = "1.1.0"
+        const val compose_viewModel = "2.4.1"
+        const val compose_ui_tooling = "1.1.1"
     }
 
     object Network {
@@ -95,6 +102,12 @@ object Libs {
             const val navigation_safe_args_plugin = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.Android.navigation}"
             const val navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:${Versions.Android.navigation}"
             const val navigation_view_ktx = "androidx.navigation:navigation-ui-ktx:${Versions.Android.navigation}"
+
+            const val compose_activity = "androidx.activity:activity-compose:${Versions.Android.compose_activity}"
+            const val compose_material = "androidx.compose.material:material:${Versions.Android.compose_material}"
+            const val compose_animation = "androidx.compose.animation:animation:${Versions.Android.compose_animation}"
+            const val compose_ui_tooling = "androidx.compose.ui:ui-tooling:${Versions.Android.compose_ui_tooling}"
+            const val compose_viewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Android.compose_viewModel}"
         }
     }
 

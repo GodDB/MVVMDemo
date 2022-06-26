@@ -130,4 +130,8 @@ fun com.android.build.gradle.BaseExtension.baseGradle() {
             jvmTarget = "1.8"
         }
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.Android.compose_kotlin_compiler_extension
+    }
 }

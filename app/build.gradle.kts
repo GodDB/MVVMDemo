@@ -6,8 +6,12 @@ plugins {
 }
 
 android {
+
     buildFeatures {
+        //TODO(22/6/26) compose 마이그레이션 완료 후 제거 예정
         dataBinding = true
+
+        compose = true
     }
 }
 

@@ -7,8 +7,12 @@ plugins {
 }
 
 android {
+
     buildFeatures {
+        //TODO(22/6/26) compose 마이그레이션 완료 후 제거 예정
         dataBinding = true
+
+        compose = true
     }
 }
 
@@ -39,6 +43,13 @@ dependencies {
         implementation(fragmentKtx)
         implementation(navigation_fragment_ktx)
         implementation(navigation_view_ktx)
+
+        // compose
+        implementation(compose_activity)
+        implementation(compose_viewModel)
+        implementation(compose_animation)
+        implementation(compose_material)
+        implementation(compose_ui_tooling)
     }
 
     with(Libs.Test) {
