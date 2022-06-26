@@ -45,6 +45,7 @@ dependencies {
         implementation(navigation_view_ktx)
 
         // compose
+        implementation(compose_runtime)
         implementation(compose_activity)
         implementation(compose_viewModel)
         implementation(compose_animation)

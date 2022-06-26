@@ -36,6 +36,7 @@ dependencies {
     with(Libs.Android.JetPack) {
         implementation(hilt_android)
         kapt(hilt_compiler)
+        implementation(compose_runtime)
     }
 
     with(Libs.Network) {
